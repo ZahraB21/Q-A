@@ -12,7 +12,7 @@ export const HomePage = () => {
         <button>Ask a question</button>
         <QuestionList
           data={getUnansweredQuestions()}
-          renderItem={(question) => <div>{question.title}</div>}
+          // renderItem={(question) => <div>{question.title}</div>}
         />
       </div>
     </Page>
