@@ -52,3 +52,7 @@ const questions: QuestionData[] = [
 export const getUnansweredQuestions = (): QuestionData[] => {
   return questions.filter((q) => q.answers.length === 0);
 };
+
+const wait = (ms: number): Promise<void> => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
