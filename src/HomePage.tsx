@@ -7,6 +7,7 @@ import { PageTitle } from './PageTitle';
 export const HomePage = () => {
   const [questions, setQuestions] = useState<QuestionData[]>([]);
   const [questionLoading, setQuestionLoading] = useState(true);
+
   useEffect(() => {
     const doGetUnansweredQuestions = async () => {
       const unansweredQuestions = await getUnansweredQuestions();
@@ -15,12 +16,16 @@ export const HomePage = () => {
     };
     doGetUnansweredQuestions();
   }, []);
-  console.log('render');
+
+  const handleAskQuestionClick = () => {
+    console.log('Ask Question is clicked');
+  };
+
   return (
     <Page>
       <div>
         <PageTitle>Unanswered Questions</PageTitle>
-        <button>Ask a question</button>
+        <button onClick={handleAskQuestionClick}>Ask a question</button>
         {questionLoading ? (
           <div>Loading</div>
         ) : (
