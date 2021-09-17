@@ -2,10 +2,17 @@ import React from 'react';
 import { UserIcon } from './Icons';
 
 const Header = () => {
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
   return (
     <div>
       <a href="./">Q & A</a>
-      <input placeholder="Search ..." type="text" />
+      <input
+        placeholder="Search ..."
+        type="text"
+        onChange={handleSearchInputChange}
+      />
       <a href="./signin">
         <UserIcon />
         <span>Sign In</span>
