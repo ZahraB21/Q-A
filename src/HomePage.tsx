@@ -6,10 +6,12 @@ import { getUnansweredQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
 import { PageTitle } from './PageTitle';
 import { PrimaryButton } from './Styles';
+import { useHistory } from 'react-router-dom';
 
 export const HomePage = () => {
   const [questions, setQuestions] = useState<QuestionData[]>([]);
   const [questionLoading, setQuestionLoading] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     const doGetUnansweredQuestions = async () => {
@@ -21,7 +23,7 @@ export const HomePage = () => {
   }, []);
 
   const handleAskQuestionClick = () => {
-    console.log('Ask Question is clicked');
+    history.push('/ask');
   };
 
   return (
@@ -37,14 +39,16 @@ export const HomePage = () => {
         <PrimaryButton onClick={handleAskQuestionClick}>
           Ask a question
         </PrimaryButton>
-        {/* {questionLoading ? (
+      </div>
+      <div>
+        {questionLoading ? (
           <div>Loading</div>
         ) : (
           <QuestionList
             data={questions}
             // renderItem={(question) => <div>{question.title}</div>}
           />
-        )} */}
+        )}
       </div>
     </Page>
   );
