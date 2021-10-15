@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { gray2, gray3 } from './Styles';
 import React from 'react';
 import { QuestionData } from './QuestionsData';
+import { Link } from 'react-router-dom';
 
 interface Props {
   data: QuestionData;
@@ -22,21 +23,17 @@ export const Question = ({ data, showContent }: Props) => {
           font-size: 19px;
         `}
       >
-        {data.title}
-      </div>
-      {showContent && (
-        <div
+        <Link
           css={css`
-            padding-bottom: 10px;
-            font-size: 15px;
+            text-decoration: none;
             color: ${gray2};
           `}
+          to={`questions/${data.questionId}`}
         >
-          {data.content.length > 50
-            ? `${data.content.substring(0, 50)}...`
-            : data.content}
-        </div>
-      )}
+          {data.title}
+        </Link>
+      </div>
+      {}
       <div
         css={css`
           font-size: 12px;
