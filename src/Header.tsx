@@ -26,7 +26,7 @@ const Header = () => {
       `}
     >
       <Link
-        to="./"
+        to="/"
         css={css`
           font-size: 24px;
           font-weight: bold;
